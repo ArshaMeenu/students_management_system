@@ -1,0 +1,101 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block messages%}
+
+{% endblock %}
+
+
+{% block content %}
+<!--Main section -->
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <div class="form-group">
+            {% if messages %}
+            {% for message in messages  %}
+            {% if message.tags == 'success' %}
+            <div class="alert alert-success">
+                {{message}}
+            </div>
+            {% else %}
+            <div class="alert alert-danger">
+                {{message}}
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div>
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <!--   Total Students Card-->
+                    <div class=" col-md-4">
+                        <div class="card info-card sales-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Active Students </h5>
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>{{students}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Total Students Card -->
+
+                    <!-- Total Lecturers Card -->
+                    <div class=" col-md-4">
+                        <div class="card info-card revenue-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Active Lecturers</h5>
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>{{lecturers}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Total Lecturers Card -->
+
+                    <!-- Total Courses Card -->
+                    <div class=" col-xl-4">
+                        <div class="card info-card customers-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Active Courses</h5>
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>{{courses}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Total Courses Card -->
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- End main -->
+
+{% endblock content %}
